@@ -11,6 +11,7 @@ import './styles/global.scss';
 
 import './styles/sidebar.scss';
 import './styles/content.scss';
+import { Header } from './components/Header';
 
 interface GenreResponseProps {
   id: number;
@@ -58,11 +59,12 @@ export function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <SideBar genres={genres} handleClickButton={handleClickButton} selectedGenreId={selectedGenreId} />
+      <SideBar
+        genres={genres}
+        handleClickButton={handleClickButton}
+        selectedGenreId={selectedGenreId} />
       <div className="container">
-        <header>
-          <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
-        </header>
+        <Header selectedGenre={selectedGenre} />
         <Content movies={movies} />
       </div>
     </div>
